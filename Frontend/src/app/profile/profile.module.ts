@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ReactiveForsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common0';
 
 import { ProfileRoutingModule } from './profile.routing.module';
@@ -10,7 +10,7 @@ import { UpdateComponent } from './update.component';
 @NgModule({
     imports: [
         CommonModule,
-        ReactiveForsModule,
+        ReactiveFormsModule,
         ProfileRoutingModule
     ],
     declarations: [
