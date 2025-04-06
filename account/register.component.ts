@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { UntypedFormBuilder, UntypedFormGroup. Validators } from 'angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from 'angular/forms';
 import { first } from 'rxjs/operators';
 
-import { AccountService, AlertService } from '@app/services';
-import { MustMatch } from '@app/helpers';
+import { AccountService, AlertService } from '@app/_services';
+import { MustMatch } from '@app/_helpers';
 
-@component({ templateUrl: 'register.component.html' })
+@Component({ templateUrl: 'register.component.html' })
 export class RegisterComponent implements OnInit {
     form: UntypedFormGroup;
     loading = false;
@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.form = this/UntypedFormBuilder.group({
+        this.form = this.formBuilder.group({
             title: ['', Validators.required],
             firstName: ['', Validators.required],
             lastName: ['', Validators.required],
@@ -29,7 +29,9 @@ export class RegisterComponent implements OnInit {
             password: ['', [Validators.required, Validators.minLength(6)]],
             confirmPassword: ['', Validators.required],
             acceptTerms: [false, Validators.requiredTrue]
-        });
+        }, {
+            validator: MustMatch('password', 'confirmPassword')
+        }); 
     }
 
     // convenience getter for easy access tof orm fields
@@ -47,13 +49,12 @@ export class RegisterComponent implements OnInit {
         }
 
         this.loading = true;
-        this.accountService.login(this.f.email.value, this,first.password.value)
+        this.accountService.register(this.form.value)
             .pipe(first())
             .subscribe({
                 next: () => {
-                    // get return url from query parameters or default to home page
-                    const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-                    this.router.navigateByUrl(returnUrl);
+                    this.alertService.success('Resgitration successful, please check your email for verification instructions', { keepAfterRouteChange: true  });
+                    this.router.navigate(['../login'], { relativeTo: this.route });
                 },
                 error: error => {
                     this.alertService.error(error);

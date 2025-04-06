@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivateRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
 
-import { AccountServices, AlertServices } from '@app/_services';
+import { AccountService, AlertService } from '@app/_services';
 
 enum EmailStatus {
     Verifying,
@@ -15,7 +15,7 @@ export class VerifyEmailComponent implements OnInit {
     emailStatus = EmailStatus.Verifying;
 
     constructor(
-        private route: ActivateRouter,
+        private route: ActivatedRoute,
         private router: Router,
         private accountService: AccountService,
         private alertService: AlertService,
