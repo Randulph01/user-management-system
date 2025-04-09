@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 
-module.exports = module;
+module.exports = model;
 
 function model(sequelize) {
     const attributes = {
