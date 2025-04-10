@@ -11,10 +11,9 @@
   "smtpOptions": {
       "host": "smtp.ethereal.email",
       "port": 587,
-      "secure": false,
       "auth": {
-          "user": "dianna.waelchi@ethereal.email",
-          "pass": "TctrdXQXfSPa3h3VBY"
+          "user": "",
+          "pass": ""
       }
   }
 }
