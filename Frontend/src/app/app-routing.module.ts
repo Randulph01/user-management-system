@@ -7,20 +7,20 @@ import { Role } from './_models';
 
 const accountModule = () => import('./account/account.module').then(x => x.AccountModule);
 const adminModule = () => import('./admin/admin.module').then(x => x.AdminModule);
-const ProfileModule = () => import('src/app/profile/profile.module').then(x => x.ProfileModule);
+const profileModule = () => import('./profile/profile.module').then(x => x.ProfileModule);
 
-const route: Routes = [
-    { path: '', component: HomeComponent, canActivate: [authGuard] },
+const routes: Routes = [
+    { path: '', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'account', loadChildren: accountModule },
-    { path: 'profile', loadChildren: ProfileModule, canActivate: [authGuard] },
-    { path: 'admin', loadChildren: adminModule, canActivate: [AuthGuard], data: {roles: [Role.Admin] } },
+    { path: 'profile', loadChildren: profileModule, canActivate: [AuthGuard] },
+    { path: 'admin', loadChildren: adminModule, canActivate: [AuthGuard], data: { roles: [Role.Admin] } },
 
     // otherwise redirect to home
-    { path: '**', redirecTo: ''}
+    { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
