@@ -19,7 +19,7 @@
         <a routerLink="edit/{{account.id}}" class="btn btn-sm btn-primary mr-1">Edit</a>
         <button (click)="deleteAccount(account.id)" class="btn btn-sm btn-danger btn-delete-account" [disabled]="account.isDeleting">
           <span *ngIf="account.isDeleting" class="spinner-border spinner-border-sm"></span>
-          <span *ngIf="!account.isDeleting">Deactivate/Activate</span>
+          <span *ngIf="!account.isDeleting">Delete</span>
         </button>
       </td>
     </tr>
