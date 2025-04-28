@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { first, finalize } from 'rxjs/operators';
 
-import { AccountService, AlertService } from '../_services';
+import { AccountService } from '../_services/account.service';
+import {AlertService} from '../_services/alert.service';
 
 @Component({ templateUrl: 'forgot-password.component.html' })
 export class ForgotPasswordComponent implements OnInit {

@@ -27,7 +27,7 @@ async function initialize() {
 
         // Initialize models
         db.Account = require('../accounts/account.model')(sequelize);
-        db.RefreshToken = require('../accounts/refresh-token.model')(sequelize);
+        db.RefreshToken = require('../accounts/refresh-token.model.js')(sequelize);
 
         // Define relationships
         db.Account.hasMany(db.RefreshToken, { onDelete: 'CASCADE' });

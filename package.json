@@ -1,6 +1,5 @@
 {
   "dependencies": {
-<<<<<<< HEAD
     "@angular/core": "^19.2.6",
     "@angular/forms": "^19.2.6",
     "@angular/platform-browser-dynamic": "^19.2.6",
@@ -8,8 +7,7 @@
     "ng": "^0.0.0",
     "rxj": "^0.0.0-alpha.0",
     "rxjs": "^7.8.2",
-    "serve": "^14.2.4"
-=======
+    "serve": "^14.2.4",
     "bcryptjs": "^3.0.2",
     "body-parser": "^2.2.0",
     "cookie-parser": "^1.4.7",
@@ -25,6 +23,5 @@
     "sequelize": "^6.37.7",
     "swagger-ui-express": "^5.0.1",
     "yamljs": "^0.3.0"
->>>>>>> branch-testing
   }
 }
