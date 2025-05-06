@@ -13,7 +13,7 @@ export class AuthGuard {
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         const account = this.accountService.accountValue;
         if (!account) {
-            this.router.navigate(['/account/login']);
+            this.router.navigate(['/accounts/login']);
             return false;
         }
         // Check for admin role

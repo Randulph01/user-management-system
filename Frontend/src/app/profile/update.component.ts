@@ -24,7 +24,7 @@ export class UpdateComponent implements OnInit {
 
     ngOnInit() {
         if (!this.account) {
-            this.router.navigate(['/account/login']); 
+            this.router.navigate(['/accounts/login']); 
             return;
         }
 
